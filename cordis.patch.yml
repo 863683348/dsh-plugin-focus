@@ -1,0 +1,24 @@
+# dsh-plugin-focus — bundle patch layer.
+#
+# Profile-bundle patches compose over an EMPTY entry list (launcher
+# composition), so every patch here is an `insert` appending composition
+# rows. This row registers the `focus` tool, the automatic context
+# injection, and the `focusBoard` session projection host-wide; because the
+# package also declares `dsh.client`, the same row is the browser roster
+# entry that loads the read-only focus panel (/plugins/<id>/client.js).
+#
+# To scope the plugin to ONE agent preset instead, remove this package from
+# the profile's `dsh.profile.bundles` and add the row below (the `focus`
+# entry) to that preset's `agent.cordis.yml`.
+- insert:
+    - id: focus
+      name: 'dsh-plugin-focus'
+      config:
+        file: '.dsh/focus.md'
+        archiveFile: '.dsh/focus.md.bak'
+        archive: true
+        maxEntries: 60
+        maxChars: 8000
+        autoInject: true
+        personaSection: true
+        sectionOrder: 5
