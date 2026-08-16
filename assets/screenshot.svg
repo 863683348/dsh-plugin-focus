@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2333"/>
+      <stop offset="1" stop-color="#141a28"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="180" rx="14" fill="url(#bg)"/>
+  <rect x="24" y="18" width="672" height="144" rx="10" fill="#232b40" stroke="#3a4560"/>
+  <circle cx="44" cy="42" r="6" fill="#4f8cff"/>
+  <text x="58" y="47" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#e8ecf5">Focus board (4 entries)</text>
+  <text x="44" y="74" font-family="Consolas, monospace" font-size="12" fill="#a9b4cc">## [2026-08-16T10:40:00.000Z] append</text>
+  <text x="44" y="92" font-family="Consolas, monospace" font-size="12" fill="#dbe2ee">Note: run the demo script before tagging the release.</text>
+  <text x="44" y="116" font-family="Consolas, monospace" font-size="12" fill="#a9b4cc">## [2026-08-16T10:10:00.000Z] append</text>
+  <text x="44" y="134" font-family="Consolas, monospace" font-size="12" fill="#dbe2ee">Decision: the board file lives at .dsh/focus.md so it survives compaction.</text>
+</svg>
