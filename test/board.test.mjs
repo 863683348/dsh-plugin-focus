@@ -126,3 +126,30 @@ test("renderBoard without cap shows every entry", () => {
   assert.ok(text.includes("## [t1]"));
   assert.ok(!text.includes("omitted"));
 });
+
+
+test("renderBoard handles an empty board", () => {
+  const text = renderBoard(emptyBoard(), 8000);
+  assert.equal(text, "# Focus Board");
+});
+
+test("renderBoard with maxEntries 1 keeps only newest", () => {
+  let board = applyAction(emptyBoard(), "set", "a", "t1");
+  board = applyAction(board, "append", "b", "t2");
+  const trimmed = trimEntries(board, 1);
+  assert.deepEqual(trimmed.entries.map((e) => e.note), ["b"]);
+});
+
+test("notes preserve unicode and CJK content", () => {
+  let board = applyAction(emptyBoard(), "set", "约束：不改动公共 API。🚫", "t1");
+  const text = serializeBoard(board);
+  const parsed = parseBoard(text);
+  assert.equal(parsed.entries[0].note, "约束：不改动公共 API。🚫");
+});
+
+test("oversized single note is capped by render but kept on disk", () => {
+  const board = { entries: [{ time: "t1", kind: "set", note: "x".repeat(5000) }] };
+  const text = renderBoard(board, 1000);
+  assert.ok(text.length <= 1000);
+  assert.equal(parseBoard(serializeBoard(board)).entries[0].note.length, 5000);
+});
