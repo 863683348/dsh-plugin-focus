@@ -1,0 +1,6 @@
+url: https://github.com/<owner>/<repo>
+name: <owner>/<repo>
+category: memory            # ui | theme | model | session | memory | tools | skill | workflow | notify | dev | market | fun
+description:
+  en: 'One-line description ending with a period. Quote when it contains ": ".'
+  zh: 一句话描述，以句号结尾。

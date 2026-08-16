@@ -1,0 +1,6 @@
+# Bundle patch layer: composes over an EMPTY entry list, so use `insert`.
+- insert:
+    - id: your-plugin-id
+      name: 'your-plugin-name'
+      config:
+        # your plugin config here
