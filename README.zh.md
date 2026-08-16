@@ -118,3 +118,12 @@ dsh plugin --profile <profile名> remove dsh-plugin-focus
 ## License
 
 MIT
+
+## 常见问题
+
+- **新会话里板子是空的——之前的板子去哪了？** 板子按工作区（workspace）存储，不按会话：如果该会话工作区已有 `.dsh/focus.md`，`focus set` 会接着读已有条目。每个 agent 会话按自己的 `session.header.cwd` 解析板子路径。
+- **自动注入费 token 吗？** 板子每轮开始注入一次（中途仅在文本变化时再次注入），并以 `maxChars` 截断；空板不注入任何内容。
+- **板子能逃出我的工作区吗？** 不能。所有路径都经 `ctx.fs` 解析，并强制做会话工作区 containment 校验；配置了工作区外的路径会直接报错。
+- **Web 面板为什么标记为实验性？** client bundle 是无打包器的手写 loader 格式，尚未在运行中的 web 实例上验证。
+- **如何发布到 npm？** 执行 `npm publish`（已内置 `prepublishOnly` 测试）。之后 `dsh plugin add dsh-plugin-focus` 即可免构建安装。
+

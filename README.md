@@ -118,3 +118,12 @@ dsh plugin --profile <profile> remove dsh-plugin-focus
 ## License
 
 MIT
+
+## FAQ
+
+- **The board is empty in a fresh session — where did it go?** The board is per-workspace, not per-session: `focus set` in a session whose workspace already has a `.dsh/focus.md` reads the existing entries. Each agent session resolves the board from its own `session.header.cwd`.
+- **Does the injection cost tokens?** The board is injected once per turn start (plus mid-turn only when the text changes), capped at `maxChars`. An empty board injects nothing.
+- **Can the board escape my workspace?** No. Every path is resolved through `ctx.fs` and containment-checked against the session workspace; a configured path outside it fails loud.
+- **The web panel is marked experimental — why?** The client bundle is hand-written in the loader format without a bundler and has not been verified against a running web instance yet.
+- **How do I publish this to npm?** `npm publish` (a `prepublishOnly` test run is wired in). Then `dsh plugin add dsh-plugin-focus` installs it without a build step.
+
