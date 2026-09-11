@@ -25,7 +25,6 @@ function apply(ctx, config) {
       schema: {
         type: "object",
         additionalProperties: false,
-        required: true,
         properties: {
           echo: { type: "string", required: true },
         },
