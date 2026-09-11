@@ -6,7 +6,8 @@ A real, installable **DSH plugin** (DeepSeek Harness / Cordis profile bundle) th
 
 | Feature | Status |
 | --- | --- |
-| `focus` tool — `set` / `get` / `append` / `clear` | ✅ stable |
+| `focus` tool — `set` / `get` / `append` / `summary` / `clear` | ✅ stable |
+| **Structured entries** — tag notes with `kind` (objective / constraint / decision / note) and `status` (open / done), grouped by `summary` | ✅ stable (v1.1) |
 | Prompt guidance section (`focus:instructions`) | ✅ stable |
 | **Automatic injection** — board is re-injected into model context at every turn start and whenever it changes | ✅ stable |
 | **Archive on clear** — `clear` moves the old board to `.dsh/focus.md.bak` (accumulates) | ✅ stable |
